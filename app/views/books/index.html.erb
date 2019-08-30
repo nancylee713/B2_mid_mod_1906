@@ -1,0 +1,16 @@
+<h1>All Books</h1>
+
+<% @books.each do |book| %>
+  <section id='book-id-<%= book.id %>'>
+    <ul>
+      <h3><%= book.title %></h3>
+      <li># of Pages: <%= book.total_pages %></li>
+      <li>Published in: <%= book.publication_year %></li>
+      <li>Authors: <% book.authors.each do |author| %>
+          <p><%= author.name %></p>
+        <% end %>
+      </li>
+    </ul>
+  </section>
+  <hr>
+<% end %>
