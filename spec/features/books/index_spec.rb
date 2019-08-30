@@ -46,5 +46,22 @@ RSpec.describe "As a visitor" do
       end
 
     end
+
+    it "show a link to each author of books" do
+      visit '/books'
+
+      expect(page).to have_link(@fyodor_dostoevsky.name)
+
+      within "#book-id-#{@crime_punishment.id}" do
+        click_on(@fyodor_dostoevsky.name)
+      end
+
+      expect(current_path).to eq("/authors/#{@fyodor_dostoevsky.id}")
+
+      expect(page).to have_content(@fyodor_dostoevsky.name)
+      expect(page).to have_content(@crime_punishment.title)
+      expect(page).to have_content(@brothers_karamazov.title)
+      expect(page).to have_content(@fyodor_dostoevsky.average_pages.to_i)
+    end
   end
 end
