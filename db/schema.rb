@@ -18,18 +18,24 @@ ActiveRecord::Schema.define(version: 20190830170249) do
   create_table "author_books", force: :cascade do |t|
     t.bigint "author_id"
     t.bigint "book_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["author_id"], name: "index_author_books_on_author_id"
     t.index ["book_id"], name: "index_author_books_on_book_id"
   end
 
   create_table "authors", force: :cascade do |t|
     t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "books", force: :cascade do |t|
     t.string "title"
     t.integer "total_pages"
     t.integer "publication_year"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   add_foreign_key "author_books", "authors"
