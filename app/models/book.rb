@@ -5,8 +5,7 @@ class Book < ApplicationRecord
     greater_than_or_equal_to: 1
   }
   validates :publication_year, numericality: {
-    only_integer: true,
-    
+    only_integer: true
   }
 
   has_many :author_books
