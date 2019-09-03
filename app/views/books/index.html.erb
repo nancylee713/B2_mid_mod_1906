@@ -7,7 +7,7 @@
       <li># of Pages: <%= book.total_pages %></li>
       <li>Published in: <%= book.publication_year %></li>
       <li>Authors: <% book.authors.each do |author| %>
-          <%= link_to author.name, "/authors/#{author.id}" %>
+          <%= link_to author.name, author_path(author) %>
         <% end %>
       </li>
     </ul>
