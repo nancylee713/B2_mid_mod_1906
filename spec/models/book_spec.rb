@@ -3,8 +3,8 @@ require 'rails_helper'
 RSpec.describe Book, type: :model do
   describe "Validations" do
     it { should validate_presence_of :title }
-    it { should validate_presence_of :total_pages }
-    it { should validate_presence_of :publication_year }
+    it { should validate_numericality_of :total_pages }
+    it { should validate_numericality_of :publication_year }
   end
 
   describe "Relationships" do
